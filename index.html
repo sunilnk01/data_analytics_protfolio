@@ -382,6 +382,36 @@
       font-size: 0.96rem;
     }
 
+    /* Achievements strip */
+    .achievements-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .achievement-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(232,168,56,0.04);
+      border: 1px solid rgba(232,168,56,0.12);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .achievement-item strong {
+      color: var(--gold);
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
     .about-contact {
       display: flex;
       flex-direction: column;
@@ -547,11 +577,38 @@
       letter-spacing: 0.08em;
     }
 
+    .project-date {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: -8px;
+    }
+
     .project-card p {
       font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.65;
       flex: 1;
+    }
+
+    .project-bullets {
+      list-style: none;
+      flex: 1;
+    }
+
+    .project-bullets li {
+      font-size: 0.84rem;
+      color: var(--muted);
+      padding: 3px 0 3px 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .project-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
     }
 
     .project-stack {
@@ -652,7 +709,13 @@
       color: var(--muted);
     }
 
-    /* ──────────────  EXPERIENCE  ────────────── */
+    .course-tag.ongoing {
+      border-color: rgba(56,201,192,0.25);
+      color: var(--teal);
+      background: rgba(56,201,192,0.06);
+    }
+
+    /* ──────────────  EXPERIENCE / RESPONSIBILITY ────────────── */
     #experience { background: var(--bg2); }
 
     .exp-timeline {
@@ -670,7 +733,7 @@
 
     .exp-item {
       position: relative;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       padding: 26px 28px;
       background: var(--card);
       border: 1px solid var(--border);
@@ -725,6 +788,7 @@
       padding: 4px 12px;
       border: 1px solid var(--border);
       border-radius: 20px;
+      white-space: nowrap;
     }
 
     .exp-bullets {
@@ -892,13 +956,13 @@
   <section id="hero">
     <div class="hero-inner">
       <div>
-        <div class="hero-tag">Available for opportunities</div>
+        <div class="hero-tag">Open to opportunities · May 2026</div>
         <h1>P <span>Sunil</span></h1>
         <p class="hero-subtitle">Data Science &nbsp;·&nbsp; Analytics &nbsp;·&nbsp; Machine Learning</p>
         <p class="hero-desc">
-          BS Earth Science student at IIT Kanpur with a passion for turning complex datasets into 
-          actionable insights. Experienced in Python, SQL, Tableau, and Power BI — bridging 
-          geoscience with cutting-edge data engineering.
+          Final-year BS Earth Sciences student at IIT Kanpur with a passion for transforming
+          complex datasets into actionable insights. Skilled in Python, R, SQL, Tableau, and
+          Power BI — bridging geoscience with data engineering and visual storytelling.
         </p>
         <div class="hero-btns">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -915,7 +979,7 @@
         <div class="stat-chips">
           <div class="stat-chip"><span>IIT</span> Kanpur</div>
           <div class="stat-chip">May <span>2026</span></div>
-          <div class="stat-chip"><span>5+</span> Projects</div>
+          <div class="stat-chip"><span>4</span> Projects</div>
         </div>
       </div>
     </div>
@@ -933,24 +997,49 @@
       <div class="about-grid reveal">
         <div class="about-text">
           <p>
-            I'm a final-year BS Earth Science student at the Indian Institute of Technology Kanpur, 
-            graduating in May 2026. My academic journey bridges geoscience and data analytics — 
-            I apply machine learning to understand seismic patterns, use SQL to query large 
-            environmental datasets, and build dashboards that communicate insight at a glance.
+            I'm a final-year BS Earth Sciences student at the Indian Institute of Technology Kanpur,
+            graduating in May 2026. My academic journey sits at the crossroads of geoscience and
+            data analytics — I apply machine learning to forecast patterns, use SQL and R pipelines
+            to process large datasets, and build interactive dashboards that communicate insights
+            at a glance.
           </p>
           <p>
-            My coursework spans Data Analytics, Machine Learning, Remote Sensing & GIS, 
-            Linear Algebra, and Probability — giving me both the mathematical foundation 
-            and applied tools to thrive in Data Science roles. I've completed simulations 
-            with Tata Group and Deloitte, worked on real-world COVID and seismic datasets, 
-            and earned a Google Data Analytics certification.
+            My coursework spans Data Analytics with Python, Python for ML &amp; Gen AI, Data Analysis
+            with R, Remote Sensing &amp; GIS, Linear Algebra, and Ordinary Differential Equations —
+            giving me both the mathematical rigour and applied toolset for Data Science roles.
+            I've completed industry simulations with Tata Group (Forage), built a Shiny web app
+            for Olympic medal analytics, and trained LSTM models for stock price forecasting.
           </p>
           <p>
-            Beyond the terminal, I've led cultural events, competed in Taekwondo at the national level, 
-            and coordinated community initiatives — demonstrating the leadership and communication skills 
-            that make data storytelling truly impactful.
+            Beyond the terminal, I've led cultural events, competed in Taekwondo at national level,
+            and represented the Telugu community at IIT Kanpur — bringing the same precision and
+            teamwork to everything I do.
           </p>
+
+          <!-- Scholastic Achievements inline -->
+          <div class="achievements-strip">
+            <div class="achievement-item">
+              <div>
+                <strong>JEE Advanced 2021</strong><br>
+                Ranked among 41,000 successful candidates out of 1.4 lakh applicants — secured
+                admission to IIT Kanpur.
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div>
+                <strong>JEE Main 2020</strong><br>
+                Qualified among top 2.5 lakh out of 11.74 lakh candidates nationwide.
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div>
+                <strong>JNVST 2013</strong><br>
+                Secured Class 6 admission at JNV Vattem by competing among 8,000+ district-level students.
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="about-contact">
           <a href="tel:+917032779160" class="contact-item">
             <div class="contact-icon">📞</div>
@@ -960,15 +1049,19 @@
             <div class="contact-icon">✉️</div>
             psunil22@iitk.ac.in
           </a>
-          <a href="#" class="contact-item" target="_blank">
+          <a href="mailto:psunill0108@gmail.com" class="contact-item">
+            <div class="contact-icon">✉️</div>
+            psunill0108@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/sunilnk01" class="contact-item" target="_blank" rel="noopener">
             <div class="contact-icon">💼</div>
-            LinkedIn Profile
+            linkedin.com/in/sunilnk01
           </a>
-          <a href="#" class="contact-item" target="_blank">
+          <a href="https://github.com/sunilnk01" class="contact-item" target="_blank" rel="noopener">
             <div class="contact-icon">⚙️</div>
-            GitHub Profile
+            github.com/sunilnk01
           </a>
-          <a href="#" class="contact-item" target="_blank">
+          <a href="https://www.iitk.ac.in" class="contact-item" target="_blank" rel="noopener">
             <div class="contact-icon">🏛️</div>
             IIT Kanpur
           </a>
@@ -983,26 +1076,46 @@
       <div class="section-label">02 &nbsp; Technical Skills</div>
       <h2>Tools of the <em>Trade</em></h2>
       <div class="skills-grid">
+
         <div class="skill-cat reveal">
-          <div class="skill-cat-label">⌨ Programming</div>
+          <div class="skill-cat-label">⌨ Programming Languages</div>
           <div class="skill-tags">
             <span class="tag">Python</span>
-            <span class="tag">C / C++</span>
+            <span class="tag">R</span>
             <span class="tag">SQL</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
+            <span class="tag">C / C++</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">MATLAB</span>
           </div>
         </div>
+
         <div class="skill-cat reveal" style="transition-delay:0.1s">
-          <div class="skill-cat-label">📦 Libraries & Frameworks</div>
+          <div class="skill-cat-label">📦 Python Libraries</div>
           <div class="skill-tags">
-            <span class="tag teal">NumPy</span>
             <span class="tag teal">Pandas</span>
+            <span class="tag teal">NumPy</span>
             <span class="tag teal">Matplotlib</span>
             <span class="tag teal">Seaborn</span>
-            <span class="tag teal">scikit-learn</span>
+            <span class="tag teal">TensorFlow / Keras</span>
+            <span class="tag teal">yfinance</span>
           </div>
         </div>
+
+        <div class="skill-cat reveal" style="transition-delay:0.15s">
+          <div class="skill-cat-label">📊 R Ecosystem</div>
+          <div class="skill-tags">
+            <span class="tag teal">ggplot2</span>
+            <span class="tag teal">plotly</span>
+            <span class="tag teal">tidyverse</span>
+            <span class="tag teal">Shiny</span>
+            <span class="tag teal">dplyr</span>
+            <span class="tag teal">rvest</span>
+            <span class="tag teal">data.table</span>
+            <span class="tag teal">patchwork</span>
+          </div>
+        </div>
+
         <div class="skill-cat reveal" style="transition-delay:0.2s">
           <div class="skill-cat-label">📊 BI & Visualisation</div>
           <div class="skill-tags">
@@ -1012,34 +1125,31 @@
             <span class="tag">Google Sheets</span>
           </div>
         </div>
+
         <div class="skill-cat reveal" style="transition-delay:0.3s">
-          <div class="skill-cat-label">🗄 Databases</div>
+          <div class="skill-cat-label">🤖 ML / AI</div>
           <div class="skill-tags">
-            <span class="tag">Microsoft SQL Server</span>
-            <span class="tag">SQL Queries</span>
-            <span class="tag">Data Cleaning</span>
+            <span class="tag">LSTM Neural Networks</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Random Forest</span>
+            <span class="tag">SVM</span>
+            <span class="tag">Naive Bayes</span>
+            <span class="tag">Generative AI</span>
           </div>
         </div>
+
         <div class="skill-cat reveal" style="transition-delay:0.4s">
-          <div class="skill-cat-label">🤖 ML & AI</div>
-          <div class="skill-tags">
-            <span class="tag teal">Linear Regression</span>
-            <span class="tag teal">SVM</span>
-            <span class="tag teal">Random Forest</span>
-            <span class="tag teal">Naive Bayes</span>
-            <span class="tag teal">Generative AI</span>
-          </div>
-        </div>
-        <div class="skill-cat reveal" style="transition-delay:0.5s">
           <div class="skill-cat-label">🛠 Dev Tools</div>
           <div class="skill-tags">
-            <span class="tag">Git & GitHub</span>
+            <span class="tag">Git &amp; GitHub</span>
+            <span class="tag">Jupyter Notebook</span>
             <span class="tag">Google Colab</span>
             <span class="tag">VS Code</span>
             <span class="tag">LaTeX</span>
             <span class="tag">MS Office</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1051,86 +1161,85 @@
       <h2>Work that <em>speaks data</em></h2>
       <div class="projects-grid">
 
+        <!-- Project 1 -->
         <div class="project-card reveal">
           <div class="project-number">01</div>
-          <h3>Earthquake Prediction using ML Models</h3>
-          <div class="project-source">Course: Geophysics</div>
-          <p>
-            Built ML pipelines on a 37,706-record seismic dataset to predict magnitudes and 
-            spatial patterns. Benchmarked Multiple Linear Regression, SVM, Naive Bayes, and 
-            Random Forest models using accuracy, precision, MSE, and R² metrics.
-          </p>
-          <div class="project-stack">
-            <span class="stack-chip">Python</span>
-            <span class="stack-chip">scikit-learn</span>
-            <span class="stack-chip">Pandas</span>
-            <span class="stack-chip">NumPy</span>
-            <span class="stack-chip">Matplotlib</span>
-            <span class="stack-chip">Seaborn</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal" style="transition-delay:0.1s">
-          <div class="project-number">02</div>
-          <h3>Global Covid-19 Data Analysis</h3>
-          <div class="project-source">Self-Project</div>
-          <p>
-            Analyzed global COVID-19 data examining demographics, policies, and vaccination 
-            impact on health outcomes. Leveraged Microsoft SQL Server for complex queries and 
-            delivered interactive Tableau dashboards visualizing evolving pandemic trends.
-          </p>
-          <div class="project-stack">
-            <span class="stack-chip">SQL Server</span>
-            <span class="stack-chip">Tableau</span>
-            <span class="stack-chip">SQL</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal" style="transition-delay:0.2s">
-          <div class="project-number">03</div>
           <h3>Data Visualisation Job Simulation</h3>
-          <div class="project-source">Tata Group — Forage</div>
-          <p>
-            Framed real business scenarios for retail leadership at Tata Consultancy. 
-            Built effective Power BI and Tableau visuals to help executives analyse revenue 
-            data and make strategic decisions from cleaned datasets.
-          </p>
+          <div class="project-source">Tata Group · Forage</div>
+          <div class="project-date">Jan 2026</div>
+          <ul class="project-bullets">
+            <li>Framed business scenarios for a retail client, translating stakeholder needs into executive-ready analytical questions.</li>
+            <li>Built Tableau and Power BI dashboards to visualize revenue trends for C-suite strategic decisions.</li>
+            <li>Improved insight delivery by cleaning raw datasets and selecting optimal chart types for complex business data.</li>
+          </ul>
           <div class="project-stack">
             <span class="stack-chip">Tableau</span>
             <span class="stack-chip">Power BI</span>
             <span class="stack-chip">Data Viz</span>
+            <span class="stack-chip">Business Intelligence</span>
           </div>
         </div>
 
+        <!-- Project 2 -->
+        <div class="project-card reveal" style="transition-delay:0.1s">
+          <div class="project-number">02</div>
+          <h3>Google Data Analytics Capstone</h3>
+          <div class="project-source">Coursera · COVID-19 Case Study</div>
+          <div class="project-date">Aug – Sep 2025</div>
+          <ul class="project-bullets">
+            <li>Engineered end-to-end SQL Server pipelines to clean, preprocess, and integrate large-scale global public health datasets.</li>
+            <li>Designed interactive Tableau dashboards tracking vaccination progress, mortality trends, and pandemic evolution.</li>
+            <li>Delivered a data storytelling report with actionable public health insights from real-world messy datasets.</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-chip">SQL Server</span>
+            <span class="stack-chip">Tableau</span>
+            <span class="stack-chip">Google Sheets</span>
+            <span class="stack-chip">Data Storytelling</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal" style="transition-delay:0.2s">
+          <div class="project-number">03</div>
+          <h3>Olympic Medal Data Analysis</h3>
+          <div class="project-source">Self-Project</div>
+          <div class="project-date">May – Jun 2025</div>
+          <ul class="project-bullets">
+            <li>Automated collection and cleaning of Olympic datasets (1984–2020) merged with GDP indicators using R pipelines.</li>
+            <li>Uncovered medal distribution trends across nations through statistical EDA and advanced analytical methods.</li>
+            <li>Built and deployed a <strong style="color:var(--gold)">Shiny web application</strong> with interactive maps and dashboards for dynamic medal insights exploration.</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-chip">R</span>
+            <span class="stack-chip">Shiny</span>
+            <span class="stack-chip">ggplot2</span>
+            <span class="stack-chip">plotly</span>
+            <span class="stack-chip">tidyverse</span>
+            <span class="stack-chip">dplyr</span>
+            <span class="stack-chip">rvest</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
         <div class="project-card reveal" style="transition-delay:0.3s">
           <div class="project-number">04</div>
-          <h3>Google Data Analytics Capstone</h3>
-          <div class="project-source">Coursera Certification</div>
-          <p>
-            End-to-end analysis of real-world datasets — cleaning, processing, visualisation, 
-            and stakeholder reporting. Developed data-driven presentations communicating 
-            findings with clarity using Google Sheets and analytical storytelling.
-          </p>
+          <h3>Stock Price Prediction Model</h3>
+          <div class="project-source">Self-Project</div>
+          <div class="project-date">Apr – May 2024</div>
+          <ul class="project-bullets">
+            <li>Designed and optimized <strong style="color:var(--gold)">LSTM neural networks</strong> in TensorFlow/Keras to forecast prices for Apple, Amazon, and Google stocks.</li>
+            <li>Performed deep EDA using moving averages, volatility indices, and multi-stock correlation to identify predictive signals.</li>
+            <li>Built Power BI dashboards and Matplotlib/Seaborn visual narratives to communicate risk profiles and historical patterns.</li>
+          </ul>
           <div class="project-stack">
-            <span class="stack-chip">Google Sheets</span>
-            <span class="stack-chip">Data Analysis</span>
-            <span class="stack-chip">Storytelling</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal" style="transition-delay:0.4s">
-          <div class="project-number">05</div>
-          <h3>Retail BI Dashboard</h3>
-          <div class="project-source">Deloitte — Forage</div>
-          <p>
-            Defined critical retail KPIs, built high-fidelity Power BI dashboards visualizing 
-            YoY growth and regional sales, and synthesised complex datasets into actionable 
-            insights — identifying underperforming categories and revenue leakages.
-          </p>
-          <div class="project-stack">
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">TensorFlow / Keras</span>
+            <span class="stack-chip">Pandas</span>
+            <span class="stack-chip">NumPy</span>
+            <span class="stack-chip">Seaborn</span>
             <span class="stack-chip">Power BI</span>
-            <span class="stack-chip">Tableau</span>
-            <span class="stack-chip">Business Intelligence</span>
+            <span class="stack-chip">yfinance</span>
           </div>
         </div>
 
@@ -1144,80 +1253,99 @@
       <div class="section-label">04 &nbsp; Education</div>
       <h2>Academic <em>Foundation</em></h2>
 
+      <!-- IIT Kanpur -->
       <div class="edu-card reveal">
         <div>
           <div class="edu-badge">🎓 Undergraduate Degree</div>
           <h3>Indian Institute of Technology Kanpur</h3>
-          <div class="degree">BS Earth Science</div>
+          <div class="degree">BS Earth Sciences · Department of Earth Sciences</div>
           <div class="courses-wrap">
             <div class="courses-label">Key Courses</div>
             <div class="courses-list">
-              <span class="course-tag">Fundamentals of Computing I & II</span>
-              <span class="course-tag">Data Analytics with Python ✦</span>
-              <span class="course-tag">Python for ML & Gen AI ✦</span>
-              <span class="course-tag">Power BI Analytics</span>
-              <span class="course-tag">Remote Sensing & GIS</span>
-              <span class="course-tag">Introduction to Probability</span>
+              <span class="course-tag">Fundamentals of Computing I &amp; II</span>
+              <span class="course-tag">Introduction to Data Analytics</span>
+              <span class="course-tag">Data Analysis with R</span>
+              <span class="course-tag ongoing">Data Analytics with Python ✦</span>
+              <span class="course-tag ongoing">Python for DA, ML &amp; Gen AI ✦</span>
+              <span class="course-tag">Remote Sensing &amp; GIS</span>
               <span class="course-tag">Linear Algebra</span>
-              <span class="course-tag">Data Analysis</span>
-              <span class="course-tag">Calculus</span>
+              <span class="course-tag">Ordinary Differential Equations</span>
+              <span class="course-tag">Economy, Society &amp; Public Policy</span>
             </div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);margin-top:8px;">✦ ongoing</div>
           </div>
         </div>
-        <div class="edu-date">Expected May 2026</div>
+        <div class="edu-date">2022 – Present<br><span style="color:var(--gold);">Expected 2026</span></div>
       </div>
+
+      <!-- Class XII -->
+      <div class="edu-card reveal" style="transition-delay:0.1s">
+        <div>
+          <div class="edu-badge">📘 Senior Secondary</div>
+          <h3>Jawahar Navodaya Vidyalaya, Vattem</h3>
+          <div class="degree">CBSE · Class XII</div>
+        </div>
+        <div class="edu-date">2020</div>
+      </div>
+
+      <!-- Class X -->
+      <div class="edu-card reveal" style="transition-delay:0.2s">
+        <div>
+          <div class="edu-badge">📗 Secondary</div>
+          <h3>Jawahar Navodaya Vidyalaya, Vattem</h3>
+          <div class="degree">CBSE · Class X</div>
+        </div>
+        <div class="edu-date">2018</div>
+      </div>
+
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE / POSITIONS OF RESPONSIBILITY -->
   <section id="experience">
     <div class="section-inner">
-      <div class="section-label">05 &nbsp; Experience</div>
-      <h2>Industry <em>Simulations</em></h2>
+      <div class="section-label">05 &nbsp; Positions of Responsibility</div>
+      <h2>Leadership &amp; <em>Impact</em></h2>
       <div class="exp-timeline">
 
         <div class="exp-item reveal">
           <div class="exp-header">
             <div>
-              <h3>Data Visualisation Analyst</h3>
-              <div class="exp-company">Tata Group (Forage Simulation)</div>
+              <h3>Cultural Coordinator</h3>
+              <div class="exp-company">Telugu Students Society (TSS) · IIT Kanpur</div>
             </div>
-            <span class="exp-date">2024</span>
+            <span class="exp-date">Jun 2024 – Apr 2025</span>
           </div>
           <ul class="exp-bullets">
-            <li>Completed a business simulation framing scenarios and preparing questions for retail client leadership.</li>
-            <li>Created effective visuals in Tableau and Power BI to help C-suite analyze revenue data.</li>
-            <li>Communicated insights by cleaning datasets and selecting the right visual type for each narrative.</li>
+            <li>Represented the Telugu community as Cultural Coordinator, planning and executing multiple cultural activities across the academic year.</li>
+            <li>Successfully organized three large-scale events with active coordination across 500+ community members.</li>
           </ul>
         </div>
 
         <div class="exp-item reveal" style="transition-delay:0.15s">
           <div class="exp-header">
             <div>
-              <h3>Business Intelligence Analyst</h3>
-              <div class="exp-company">Deloitte (Forage Simulation)</div>
+              <h3>Secretary, Show Management</h3>
+              <div class="exp-company">Antaragni'23 — IIT Kanpur Annual Cultural Festival</div>
             </div>
-            <span class="exp-date">2024</span>
+            <span class="exp-date">Sep 2023 – Oct 2023</span>
           </div>
           <ul class="exp-bullets">
-            <li>Defined critical retail KPIs including sales performance and inventory turnover to align data strategy.</li>
-            <li>Developed high-fidelity Power BI dashboards visualizing YoY growth and regional sales patterns.</li>
-            <li>Transformed complex datasets into insights by identifying underperforming categories and revenue leakages.</li>
+            <li>Coordinated IIT Kanpur's annual cultural festival for the Junoon vertical, managing planning, logistics, artist coordination, and execution.</li>
+            <li>Collaborated with a diverse student team to ensure seamless event operations and audience engagement.</li>
           </ul>
         </div>
 
         <div class="exp-item reveal" style="transition-delay:0.3s">
           <div class="exp-header">
             <div>
-              <h3>Data Analytics Certificate</h3>
-              <div class="exp-company">Google / Coursera</div>
+              <h3>Junior Election Officer</h3>
+              <div class="exp-company">IIT Kanpur</div>
             </div>
-            <span class="exp-date">2024</span>
+            <span class="exp-date">2023</span>
           </div>
           <ul class="exp-bullets">
-            <li>Completed the full Google Data Analytics professional certificate curriculum.</li>
-            <li>Conducted an end-to-end case study with real-world dataset cleaning, processing, and visualization.</li>
-            <li>Developed data storytelling skills — preparing analytical reports and stakeholder presentations.</li>
+            <li>Assisted in conducting student elections for 5,000+ students, ensuring fair and transparent electoral processes.</li>
           </ul>
         </div>
 
@@ -1229,28 +1357,33 @@
   <section id="extras">
     <div class="section-inner">
       <div class="section-label">06 &nbsp; Beyond the Data</div>
-      <h2>Leadership & <em>Life</em></h2>
+      <h2>Sports, Service &amp; <em>Life</em></h2>
       <div class="extras-grid">
+
         <div class="extra-card reveal">
-          <div class="extra-icon">🎭</div>
-          <h4>Cultural Leadership</h4>
-          <p>Served as Cultural Coordinator, organized large-scale events, anchored, and performed in dance programs at IIT Kanpur.</p>
-        </div>
-        <div class="extra-card reveal" style="transition-delay:0.1s">
           <div class="extra-icon">🥋</div>
           <h4>National Sports Achiever</h4>
-          <p>Won a bronze medal in Taekwondo at the NVS National competition. Also competed in Cricket (Hall 12 team) and Kho Kho at Udghosh'24.</p>
+          <p>Won a <strong>bronze medal in Taekwondo</strong> at the NVS National Meet — competed twice at national level, demonstrating discipline and commitment.</p>
         </div>
+
+        <div class="extra-card reveal" style="transition-delay:0.1s">
+          <div class="extra-icon">🏏</div>
+          <h4>Team Sports</h4>
+          <p>Played Cricket and Kho Kho for IIT Kanpur, contributing to victories in Fresher's Inferno, Phatta League, TSS events, and Udghosh'24.</p>
+        </div>
+
         <div class="extra-card reveal" style="transition-delay:0.2s">
+          <div class="extra-icon">🎭</div>
+          <h4>Cultural Leadership</h4>
+          <p>Actively represented the Telugu community, organized large-scale cultural festivals, and collaborated with 500+ members across events at IIT Kanpur.</p>
+        </div>
+
+        <div class="extra-card reveal" style="transition-delay:0.3s">
           <div class="extra-icon">🤝</div>
           <h4>Social Initiatives</h4>
-          <p>Supported local farmers in financial processes, led NCC programs, and actively contributed to blood donation drives.</p>
+          <p>Contributed to social welfare by supporting farmers, donating blood, and leading NCC initiatives in education and environmental awareness.</p>
         </div>
-        <div class="extra-card reveal" style="transition-delay:0.3s">
-          <div class="extra-icon">🏆</div>
-          <h4>Team & Events</h4>
-          <p>Collaborated across inter-hostel and institute-level events, demonstrating consistent leadership and team coordination skills.</p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -1258,14 +1391,15 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-name">P Sunil</div>
-    <div class="footer-tagline">Data Science · Analytics · IIT Kanpur</div>
+    <div class="footer-tagline">Data Science · Analytics · IIT Kanpur · May 2026</div>
     <div class="footer-links">
       <a href="mailto:psunil22@iitk.ac.in">psunil22@iitk.ac.in</a>
+      <a href="mailto:psunill0108@gmail.com">psunill0108@gmail.com</a>
       <a href="tel:+917032779160">+91 7032779160</a>
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://github.com/sunilnk01" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sunilnk01" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="footer-copy">© 2025 P Sunil · Built for Data Science Opportunities</div>
+    <div class="footer-copy">© 2026 P Sunil · Built for Data Science Opportunities</div>
   </footer>
 
   <script>
